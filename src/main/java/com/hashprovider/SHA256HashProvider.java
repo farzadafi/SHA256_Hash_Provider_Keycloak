@@ -28,8 +28,11 @@ public class SHA256HashProvider implements PasswordHashProvider {
     }
 
     @Override
-    public boolean verify(String s, PasswordCredentialModel passwordCredentialModel) {
-        return false;
+    public boolean verify(String rawPassword, PasswordCredentialModel passwordCredentialModel) {
+        String salt = new String(passwordCredentialModel.getPasswordSecretData().getSalt(), java.nio.charset.StandardCharsets.UTF_8);
+        String encodedPassword = this.encode(rawPassword + salt, 27500);
+        String hash = passwordCredentialModel.getPasswordSecretData().getValue();
+        return encodedPassword.equals(hash);
     }
 
     @Override
