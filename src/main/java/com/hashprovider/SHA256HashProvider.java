@@ -4,6 +4,8 @@ import org.keycloak.credential.hash.PasswordHashProvider;
 import org.keycloak.models.PasswordPolicy;
 import org.keycloak.models.credential.PasswordCredentialModel;
 
+import java.security.SecureRandom;
+
 public class SHA256HashProvider implements PasswordHashProvider {
 
     private final String providerId;
@@ -30,5 +32,12 @@ public class SHA256HashProvider implements PasswordHashProvider {
     @Override
     public void close() {
 
+    }
+
+    public byte[] generateSalt() {
+        SecureRandom random = new SecureRandom();
+        byte[] bytes = new byte[16];
+        random.nextBytes(bytes);
+        return bytes;
     }
 }
