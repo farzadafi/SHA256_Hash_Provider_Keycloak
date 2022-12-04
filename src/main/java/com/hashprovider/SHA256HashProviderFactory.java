@@ -12,7 +12,7 @@ public class SHA256HashProviderFactory implements PasswordHashProviderFactory {
 
     @Override
     public PasswordHashProvider create(KeycloakSession keycloakSession) {
-        return null;
+        return new SHA256HashProvider(getId());
     }
 
     @Override
