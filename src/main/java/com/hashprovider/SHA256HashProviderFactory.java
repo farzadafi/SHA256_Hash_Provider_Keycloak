@@ -7,6 +7,9 @@ import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.KeycloakSessionFactory;
 
 public class SHA256HashProviderFactory implements PasswordHashProviderFactory {
+
+    public static final String ID = "sha256-salted";
+
     @Override
     public PasswordHashProvider create(KeycloakSession keycloakSession) {
         return null;
@@ -29,6 +32,6 @@ public class SHA256HashProviderFactory implements PasswordHashProviderFactory {
 
     @Override
     public String getId() {
-        return null;
+        return ID;
     }
 }
