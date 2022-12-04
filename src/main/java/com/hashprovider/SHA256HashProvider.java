@@ -14,7 +14,7 @@ public class SHA256HashProvider implements PasswordHashProvider {
 
     @Override
     public boolean policyCheck(PasswordPolicy passwordPolicy, PasswordCredentialModel passwordCredentialModel) {
-        return false;
+        return this.providerId.equals(passwordCredentialModel.getPasswordCredentialData().getAlgorithm());
     }
 
     @Override
