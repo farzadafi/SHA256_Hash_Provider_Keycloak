@@ -6,6 +6,11 @@ import org.keycloak.models.credential.PasswordCredentialModel;
 
 public class SHA256HashProvider implements PasswordHashProvider {
 
+    private final String providerId;
+
+    public SHA256HashProvider(String providerId) {
+        this.providerId = providerId;
+    }
 
     @Override
     public boolean policyCheck(PasswordPolicy passwordPolicy, PasswordCredentialModel passwordCredentialModel) {
