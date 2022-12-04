@@ -4,6 +4,7 @@ import org.keycloak.credential.hash.PasswordHashProvider;
 import org.keycloak.models.PasswordPolicy;
 import org.keycloak.models.credential.PasswordCredentialModel;
 
+import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
 
 public class SHA256HashProvider implements PasswordHashProvider {
@@ -20,8 +21,10 @@ public class SHA256HashProvider implements PasswordHashProvider {
     }
 
     @Override
-    public PasswordCredentialModel encodedCredential(String s, int i) {
-        return null;
+    public PasswordCredentialModel encodedCredential(String rawPassword, int iterations) {
+        String salt = new String(generateSalt(), StandardCharsets.UTF_8);
+        String encodedPassword = this.encode( rawPassword + salt, 27500);
+        return PasswordCredentialModel.createFromValues(this.providerId, salt.getBytes(), 27500, encodedPassword);
     }
 
     @Override
