@@ -25,3 +25,16 @@
 <p>if you register an admin before you can click on <b>Administration Console </b>and login to admin console
  but you have to enter a new username and password for create a new admin, and then you can to login 
 </p>
+
+<p>After login you enter to this console:</p>
+<img src="image/FirstConsoleAfterLogin.png" alt="first console after login">
+<p>click on <b>Authentication</b> from bottom and left console section and then <b>1-Policies 2-Add Policy 3-Hashing Algorithm</b>:</p>
+<img src="image/keycloakAuthenticationSection.png" alt="keycloak Authentication section">
+<p>and the last section you have to enter the name of your custom hash provider and then click on save button:</p>
+<img src="image/addNewHashProvider.png" alt="add new hash provider">
+
+<p>maybe you say from where I know name of custom hash Provider?when you import this to keycloak this name print here:</p>
+<img src="image/nameOfHashProvicer.png" alt="name of hash provider">
+
+<p>That's All 🥰 , if you have a question please message to me
+</p>
